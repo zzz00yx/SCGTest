@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Building directory
+build/
+
+# Clangd cache directory
+.cache/
