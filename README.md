@@ -1,0 +1,2 @@
+# SCGTest
+GTest on SystemC
