@@ -6,9 +6,8 @@ project(SCGTest)
 
 option(ENABLE_EXAMPLE "Enable building the example add add them to ctest" OFF)
 
-find_package(GTest REQUIRED)
-find_package(SystemCLanguage CONFIG REQUIRED)
-set(CMAKE_CXX_STANDARD ${SystemC_CXX_STANDARD})
+# find_package(GTest REQUIRED)
+# find_package(SystemC REQUIRED)
 
 add_library(SCGTest OBJECT
     scgtest_main.cpp
@@ -19,8 +18,8 @@ target_include_directories(SCGTest PUBLIC
 )
 
 target_link_libraries(SCGTest
-    GTest::gtest
-    SystemC::systemc
+    gtest
+    systemc
 )
 
 if(ENABLE_EXAMPLE)
