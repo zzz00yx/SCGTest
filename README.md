@@ -23,6 +23,8 @@ target_link_library(<YOUR-TARGET>
 ```
 3. Use a GTest test-fixture to define your SystemC modules and other components, and instance or bind them in `SetUp` function.
 ```cpp
+#include "scgtest.h"
+
 class MyTest : public testing::Test {
  public:
   Module module{"module"};
