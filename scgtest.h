@@ -33,7 +33,6 @@ class GTestModule : public sc_core::sc_module {
     sc_core::sc_stop();
   }
 };
-}  // namespace internal
 
 struct HierarchyScope {
   sc_core::sc_module& m;
@@ -43,6 +42,8 @@ struct HierarchyScope {
   ~HierarchyScope() { m.simcontext()->hierarchy_pop(); }
 };
 
+}  // namespace internal
+
 #define SCGTEST_TEST_(test_case_name, test_name, parent_class, parent_id)     \
   class GTEST_TEST_CLASS_NAME_(test_case_name, test_name)                     \
       : public parent_class {                                                 \
@@ -51,8 +52,8 @@ struct HierarchyScope {
                                                                               \
    private:                                                                   \
     void TestBody() override {                                                \
-      internal::GTestModule module{#test_case_name "-" #test_name,            \
-                                   [this]() { SC_TestBody(); }};              \
+      ::internal::GTestModule module{#test_case_name "-" #test_name,          \
+                                     [this]() { SC_TestBody(); }};            \
       sc_core::sc_start();                                                    \
     }                                                                         \
     void SC_TestBody();                                                       \
