@@ -17,7 +17,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(SCGTest)
 
-target_link_library(<YOUR-TARGET>
+target_link_libraries(<YOUR-TARGET>
     SCGTest
 )
 ```
